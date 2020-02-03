@@ -1,0 +1,63 @@
+body {
+  margin: 3em 20%;
+  background: #f8f8f8;
+}
+.main {
+  line-height: 1.5;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 3em 3em;
+  font-size: 1.1em;
+  color: #333;
+}
+.title {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif;
+  font-size: 1.5em;
+}
+.links {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif;
+}
+.date {
+  color: #888;
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+.align-right {
+  text-align: right;
+}
+.main-body {
+  margin-top: 2em;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-item {
+  /*
+  border: 1px solid #88a;
+  border-radius:  5px;
+  */
+  margin: 0.5em;
+  padding: 4px 12px;
+}
+
+a:link { 
+  color: #447;
+  text-decoration: none;
+}
+a:visited { 
+  color: #447; 
+}
+a:hover { 
+  color: #111; 
+  text-decoration: none;
+}
+a:active { 
+  color: #44a; 
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    margin: 3em 3em;
+  }
+}

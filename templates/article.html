@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .article.Title }}</title>
+    <link rel="stylesheet" media="all" href="/css/main.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="title">{{ .article.Title }}</div>
+    <div class="date align-right">( {{ .article.FormattedDate }} {{ .article.MediaName }} )</div>
+    <div class="main-body">
+    {{range .article.FormattedBody}}
+      <p>{{.}}</p>
+    {{end}}
+    </div>
+  </div>
+  <div class="footer links">
+    {{if gt .prevArticle.ID 0 }}
+    <div class="footer-item">
+      <a href="/articles/{{ .prevArticle.ID }}">前の記事</a>
+    </div>
+    {{end}}
+    
+    <div class="footer-item">
+      <a href="/">TOP</a>
+    </div>
+
+    {{if gt .nextArticle.ID 0 }}
+    <div class="footer-item">
+      <a href="/articles/{{ .nextArticle.ID }}">次の記事</a>
+    </div>
+    {{end}}
+
+  </div>
+</body>
+</html>

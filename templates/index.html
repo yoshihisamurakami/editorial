@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社説収集</title>
+    <link rel="stylesheet" media="all" href="/css/main.css" />
+</head>
+<body>
+    <div class="main links">
+    <ul>
+    {{ range .articles }}
+        <li>
+            <a href="/articles/{{.ID}}">{{.Title}}</a>
+            <span class="date">({{.FormattedDate}} {{.MediaName}})</span> 
+        </li>
+    {{ end }}
+    </ul>
+    </div>
+</body>
+</html>
