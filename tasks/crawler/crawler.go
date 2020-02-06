@@ -3,9 +3,11 @@ package main
 import (
 	"editorial/tasks/crawler/mainichi"
 	"editorial/tasks/crawler/tokyo"
+	"time"
 )
 
 func main() {
-	mainichi.Crawl()
-	tokyo.Crawl()
+	go mainichi.Crawl()
+	go tokyo.Crawl()
+	time.Sleep(10 * time.Second)
 }

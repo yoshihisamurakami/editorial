@@ -14,13 +14,11 @@ func GetEditorials() []model.ArticleView {
 
 	var article []model.Article
 	var articleView []model.ArticleView
-	db.Order("date DESC, created_at DESC").Find(&article)
+	db.Order("date DESC, media_id DESC, created_at DESC").Find(&article)
 
 	for _, v := range article {
 		av := model.ArticleView{}
 		av.Init(v)
-		av.FormattedDate = v.Date[:10]
-		av.MediaName = av.GetMediaName()
 		articleView = append(articleView, av)
 	}
 	return articleView
@@ -36,8 +34,6 @@ func GetOneEditorial(id string) model.ArticleView {
 	db.Find(&article, id)
 	articleView.Init(article)
 	articleView.FormattedBody = getArticleBody(article.Body)
-	articleView.FormattedDate = article.Date[:10]
-	articleView.MediaName = articleView.GetMediaName()
 	return articleView
 }
 

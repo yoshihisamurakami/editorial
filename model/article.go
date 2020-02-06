@@ -14,9 +14,6 @@ type Article struct {
 	Title   string
 	Body    string
 	Url     string
-	//FormattedDate string
-	//FormattedBody []string
-	//MediaName     string
 }
 
 type ArticleView struct {
@@ -43,16 +40,17 @@ func (av *ArticleView) Init(a Article) {
 	av.Title = a.Title
 	av.Body = a.Body
 	av.Url = a.Url
-
+	av.ensureForView()
 }
-func (a ArticleView) GetMediaName() string {
+
+func (a *ArticleView) ensureForView() {
+	a.FormattedDate = a.Date[:10]
+	a.MediaName = a.getMediaName()
+}
+
+func (a ArticleView) getMediaName() string {
 	mediaNames := []string{"", "毎日新聞", "東京新聞"}
 	return mediaNames[a.MediaId]
-}
-
-func (a ArticleView) SetMediaName() {
-	mediaNames := []string{"", "毎日新聞"}
-	a.MediaName = mediaNames[a.MediaId]
 }
 
 func Update(e Editorial) {
